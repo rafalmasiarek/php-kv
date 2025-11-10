@@ -1,0 +1,17 @@
+{
+    "name": "rafalmasiarek/php-kv",
+    "description": "Lightweight versioned key–value storage for PHP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "rafalmasiarek\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
+}
