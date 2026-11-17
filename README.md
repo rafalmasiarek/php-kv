@@ -1,6 +1,31 @@
 # php-kv
 Tiny versioned key-value manager for PHP.
 
+
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+```text
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files, to deal in the Software
+without restriction.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+Source: https://opensource.org/licenses/MIT
+```
+See [LICENSE](LICENSE) for full details.
+## Authors
+
+- Rafał Masiarek | [website](https://masiarek.pl) | [github](https://github.com/rafalmasiarek)
+
+
 ## Concepts
 
 **Scope** + **ID** + **Key** ⇒ versioned value.
@@ -49,6 +74,31 @@ $kv->delete('user', '123', 'theme');
 // delete whole document (scope+id)
 $kv->deleteDocument('user', '123');
 ```
+
+
+## Installation
+
+```bash
+composer require rafalmasiarek/php-kv
+```
+
+## Minimal usage
+
+```php
+use rafalmasiarek\KV;
+use rafalmasiarek\KV\Storage\FileStorage;
+
+$kv = new KV(new FileStorage(__DIR__ . '/var/kv'));
+
+// Set
+$kv->set('app', 'flags', 'new_ui', true);
+
+// Get
+if ($kv->get('app', 'flags', 'new_ui')) {
+    // ...
+}
+```
+
 
 ## Schema format
 
@@ -106,52 +156,6 @@ Included:
 
 You can implement your own storage (e.g. SQL) by implementing this interface.
 
-## Installation
-
-```bash
-composer require rafalmasiarek/php-kv
-```
-
-## Minimal usage
-
-```php
-use rafalmasiarek\KV;
-use rafalmasiarek\KV\Storage\FileStorage;
-
-$kv = new KV(new FileStorage(__DIR__ . '/var/kv'));
-
-// Set
-$kv->set('app', 'flags', 'new_ui', true);
-
-// Get
-if ($kv->get('app', 'flags', 'new_ui')) {
-    // ...
-}
-```
-
-
-
-## License
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-```text
-The MIT License (MIT)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files, to deal in the Software
-without restriction.
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
-
-Source: https://opensource.org/licenses/MIT
-```
-See [LICENSE](LICENSE) for full details.
-## Authors
-
-- Rafał Masiarek | [website](https://masiarek.pl) | [github](https://github.com/rafalmasiarek)
 
 
 ## Index
