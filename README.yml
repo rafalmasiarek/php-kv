@@ -6,7 +6,7 @@ context:
   - |
     Tiny versioned key-value manager for PHP.
 
-includes:
+footer_includes:
   - docs/usage.md
   - docs/schema.md
   - docs/api.md
